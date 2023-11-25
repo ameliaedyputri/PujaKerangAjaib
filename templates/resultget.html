@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puja Kerang Ajaib</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        min-height: 100vh;
+        background: url("{{ url_for('static', filename='background_blue.jpeg') }}") no-repeat;
+        background-size: cover;
+        background-position: center;
+        backdrop-filter: blur(20px);
+    }
+
+    .message {
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .text {
+        font-size: 2em;
+        letter-spacing: 10px;
+        font-family: monospace;
+        border-right: 5px solid;
+        white-space: normal;
+        overflow: hidden;
+        animation: typing 10s, cursor .4s step-end infinite alternate;
+    }
+
+    @keyframes cursor {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+    }
+    button{
+        width: 200px;
+        padding: 15px 0;
+        text-align: center;
+        margin: 20px 10px;
+        border-radius: 25px;
+        font-weight: bold;
+        background: white;
+        color: black;
+        text-decoration: none;
+        transition: 0.5s;
+        cursor: pointer;
+        position:relative ;
+    }
+    button:hover{
+        letter-spacing: 0.25em;
+        box-shadow: 0 0 35px navy;
+    }
+</style>
+</head>
+<body>
+    <div class="message">
+        <h1 class="text">{{ resultget }}</h1>
+        <button id="refreshButton" type="submit" clas="button"><span>Dapatkan Pesan Kerang Ajaib Lainnya</span></button>
+    </div>
+
+    <script>
+        document.getElementById('refreshButton').addEventListener('click', function() {
+            location.reload();
+        });
+    </script>
+    
+</body>
+</html>
